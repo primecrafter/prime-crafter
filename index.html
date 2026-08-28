@@ -1075,6 +1075,53 @@ info@primecrafter.com
 
 </footer>
 
+<!-- PRIME CRAFTER CART -->
 
+<script>
+
+let cart = [];
+
+const products = [
+  {
+    name: "Minimal Çelik Kolye",
+    price: 549
+  },
+  {
+    name: "Premium Çelik Bileklik",
+    price: 499
+  },
+  {
+    name: "Minimal Çelik Yüzük",
+    price: 449
+  }
+];
+
+function addToCart(index){
+
+  cart.push(products[index]);
+
+  updateCart();
+
+  alert("Ürün sepete eklendi.");
+
+}
+
+function updateCart(){
+
+  let total = 0;
+
+  cart.forEach(product => {
+    total += product.price;
+  });
+
+  const cartButton = document.querySelector(".cart");
+
+  if(cartButton){
+    cartButton.innerHTML = "🛒 Sepet (" + cart.length + ")";
+  }
+
+}
+
+</script>
 </body>
 </html>
