@@ -1865,5 +1865,199 @@ product.style.display="none";
 }
 
 </script>
+  <style>
+
+/* SEARCH + FAVORITES */
+
+.product-tools{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+.product-search{
+width:280px;
+max-width:100%;
+padding:13px 15px;
+border:1px solid #ddd;
+background:white;
+outline:none;
+font-size:14px;
+}
+
+.product-search:focus{
+border-color:#111;
+}
+
+.favorite-button{
+position:absolute;
+top:15px;
+right:15px;
+z-index:10;
+width:38px;
+height:38px;
+border:none;
+border-radius:50%;
+background:white;
+font-size:20px;
+box-shadow:0 3px 12px rgba(0,0,0,.12);
+cursor:pointer;
+}
+
+.favorite-button.active{
+color:#b08a3c;
+}
+
+</style>
+
+<script>
+
+/* SEARCH BOX */
+
+const productsSection =
+document.querySelector(".products-section");
+
+const productsGrid =
+document.querySelector(".products");
+
+if(productsSection && productsGrid){
+
+const tools=document.createElement("div");
+
+tools.className="product-tools";
+
+tools.innerHTML=`
+
+<div></div>
+
+<input
+type="search"
+class="product-search"
+placeholder="🔎 Ürün ara..."
+oninput="searchProducts(this.value)"
+>
+
+`;
+
+const title=
+productsSection.querySelector(".section-title");
+
+title.after(tools);
+
+}
+
+
+/* SEARCH */
+
+function searchProducts(value){
+
+const search=value.toLowerCase().trim();
+
+document.querySelectorAll(".product").forEach(
+function(product){
+
+const name=
+product.querySelector("h3")
+.textContent
+.toLowerCase();
+
+if(name.includes(search)){
+
+product.style.display="block";
+
+}else{
+
+product.style.display="none";
+
+}
+
+});
+
+}
+
+
+/* FAVORITES */
+
+document.querySelectorAll(".product").forEach(
+function(product,index){
+
+const button=
+document.createElement("button");
+
+button.className="favorite-button";
+
+button.innerHTML="♡";
+
+button.onclick=function(){
+
+toggleFavorite(index,button);
+
+};
+
+product.appendChild(button);
+
+});
+
+
+let favorites=
+JSON.parse(
+localStorage.getItem("primeCrafterFavorites")
+)||[];
+
+
+function toggleFavorite(index,button){
+
+if(favorites.includes(index)){
+
+favorites=
+favorites.filter(
+item=>item!==index
+);
+
+button.innerHTML="♡";
+
+button.classList.remove("active");
+
+}else{
+
+favorites.push(index);
+
+button.innerHTML="♥️";
+
+button.classList.add("active");
+
+}
+
+localStorage.setItem(
+"primeCrafterFavorites",
+JSON.stringify(favorites)
+);
+
+}
+
+
+favorites.forEach(function(index){
+
+const products=
+document.querySelectorAll(".product");
+
+if(products[index]){
+
+const button=
+products[index]
+.querySelector(".favorite-button");
+
+button.innerHTML="♥️";
+
+button.classList.add("active");
+
+}
+
+});
+
+</script>
 </body>
 </html>
