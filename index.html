@@ -6,28 +6,10 @@
 
 <title>PRIME CRAFTER | Modern Takılar</title>
 
-<meta name="description" content="PRIME CRAFTER - Modern, şık ve zamansız takılar.">
+<meta name="description" content="PRIME CRAFTER - Modern, zarif ve zamansız takılar.">
 
 <style>
-  /* PRIME CRAFTER PREMIUM PRODUCT IMAGES */
 
-.product:nth-child(1) .product-image{
-  background-image:url("https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=90");
-  background-size:cover;
-  background-position:center;
-}
-
-.product:nth-child(2) .product-image{
-  background-image:url("https://images.unsplash.com/photo-1598560917807-1bae44bd2be8?auto=format&fit=crop&w=900&q=90");
-  background-size:cover;
-  background-position:center;
-}
-
-.product:nth-child(3) .product-image{
-  background-image:url("https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=90");
-  background-size:cover;
-  background-position:center;
-}
 *{
 margin:0;
 padding:0;
@@ -41,7 +23,7 @@ scroll-behavior:smooth;
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#f7f6f2;
-color:#171717;
+color:#151515;
 line-height:1.6;
 }
 
@@ -50,27 +32,35 @@ text-decoration:none;
 color:inherit;
 }
 
+img{
+max-width:100%;
+display:block;
+}
+
+
+/* ================= HEADER ================= */
+
 header{
-background:#090909;
-color:white;
 position:sticky;
 top:0;
 z-index:1000;
+background:#080808;
+color:white;
 border-bottom:1px solid #292929;
 }
 
 .navbar{
 max-width:1250px;
-margin:auto;
 height:76px;
+margin:auto;
+padding:0 25px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:0 25px;
 }
 
 .logo{
-font-size:23px;
+font-size:22px;
 font-weight:800;
 letter-spacing:3px;
 }
@@ -82,7 +72,7 @@ color:#c9a45c;
 nav{
 display:flex;
 align-items:center;
-gap:30px;
+gap:28px;
 }
 
 nav a{
@@ -97,18 +87,27 @@ color:#c9a45c;
 
 .cart{
 border:1px solid #555;
-padding:8px 15px;
+padding:8px 14px;
 border-radius:4px;
 }
 
+
+/* ================= HERO ================= */
+
 .hero{
-min-height:700px;
+min-height:720px;
 display:flex;
 align-items:center;
+
 background:
-linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.25)),
-url("https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=2000&q=90")
+linear-gradient(
+90deg,
+rgba(0,0,0,.85),
+rgba(0,0,0,.25)
+),
+url("https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=2000&q=90")
 center/cover;
+
 color:white;
 }
 
@@ -121,15 +120,15 @@ padding:60px 25px;
 
 .eyebrow{
 color:#c9a45c;
-font-size:13px;
+font-size:12px;
 font-weight:bold;
 letter-spacing:5px;
 margin-bottom:20px;
 }
 
 .hero h1{
-font-size:clamp(52px,8vw,92px);
-line-height:.95;
+font-size:clamp(55px,8vw,95px);
+line-height:.92;
 letter-spacing:4px;
 margin-bottom:28px;
 }
@@ -142,14 +141,14 @@ color:#c9a45c;
 max-width:560px;
 font-size:19px;
 color:#ddd;
-margin-bottom:35px;
+margin-bottom:38px;
 }
 
 .button{
 display:inline-block;
 background:#c9a45c;
 color:#111;
-padding:14px 32px;
+padding:15px 32px;
 border-radius:3px;
 font-weight:bold;
 transition:.3s;
@@ -159,6 +158,9 @@ transition:.3s;
 background:white;
 transform:translateY(-2px);
 }
+
+
+/* ================= GENERAL ================= */
 
 section{
 padding:90px 25px;
@@ -183,7 +185,8 @@ margin-bottom:10px;
 color:#777;
 }
 
-/* CATEGORIES */
+
+/* ================= CATEGORIES ================= */
 
 .categories{
 background:white;
@@ -196,31 +199,35 @@ gap:25px;
 }
 
 .category{
-height:420px;
+height:430px;
 position:relative;
 overflow:hidden;
 display:flex;
 align-items:flex-end;
-border-radius:4px;
 background-size:cover;
 background-position:center;
+transition:.4s;
+}
+
+.category:hover{
+transform:translateY(-5px);
 }
 
 .category:nth-child(1){
 background-image:
-linear-gradient(transparent,rgba(0,0,0,.8)),
+linear-gradient(transparent,rgba(0,0,0,.85)),
 url("https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=90");
 }
 
 .category:nth-child(2){
 background-image:
-linear-gradient(transparent,rgba(0,0,0,.8)),
+linear-gradient(transparent,rgba(0,0,0,.85)),
 url("https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1000&q=90");
 }
 
 .category:nth-child(3){
 background-image:
-linear-gradient(transparent,rgba(0,0,0,.8)),
+linear-gradient(transparent,rgba(0,0,0,.85)),
 url("https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=90");
 }
 
@@ -229,25 +236,26 @@ padding:30px;
 color:white;
 }
 
-.category-content span{
+.category-content small{
 color:#c9a45c;
-font-size:12px;
+font-size:11px;
 letter-spacing:3px;
 font-weight:bold;
 }
 
 .category-content h3{
-font-size:30px;
-margin:5px 0 12px;
+font-size:32px;
+margin:6px 0 12px;
 }
 
 .category-content a{
-font-size:14px;
+font-size:13px;
 border-bottom:1px solid #c9a45c;
 padding-bottom:4px;
 }
 
-/* PRODUCTS */
+
+/* ================= PRODUCTS ================= */
 
 .products-section{
 background:#f7f6f2;
@@ -261,30 +269,28 @@ gap:25px;
 
 .product{
 background:white;
-border-radius:5px;
+border:1px solid #e5e2dc;
 overflow:hidden;
 transition:.3s;
-border:1px solid #e6e3dc;
 }
 
 .product:hover{
 transform:translateY(-6px);
-box-shadow:0 15px 35px rgba(0,0,0,.09);
+box-shadow:0 15px 35px rgba(0,0,0,.1);
 }
 
 .product-image{
-height:340px;
-background:#eee;
+height:350px;
 background-size:cover;
 background-position:center;
 }
 
 .product:nth-child(1) .product-image{
-background-image:url("https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=90");
+background-image:url("https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=90");
 }
 
 .product:nth-child(2) .product-image{
-background-image:url("https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=90");
+background-image:url("https://images.unsplash.com/photo-1598560917807-1bae44bd2be8?auto=format&fit=crop&w=900&q=90");
 }
 
 .product:nth-child(3) .product-image{
@@ -292,13 +298,13 @@ background-image:url("https://images.unsplash.com/photo-1605100804763-247f67b355
 }
 
 .product-info{
-padding:22px;
+padding:23px;
 }
 
 .product-tag{
-font-size:11px;
-color:#9b7a35;
-letter-spacing:2px;
+font-size:10px;
+letter-spacing:3px;
+color:#9b7937;
 font-weight:bold;
 }
 
@@ -310,21 +316,21 @@ margin:7px 0;
 .product-info p{
 font-size:14px;
 color:#777;
-margin-bottom:15px;
+margin-bottom:17px;
 }
 
 .price{
-font-size:20px;
+font-size:21px;
 font-weight:bold;
 }
 
 .product-button{
 display:block;
 text-align:center;
-border:1px solid #171717;
+border:1px solid #111;
 padding:11px;
 margin-top:18px;
-font-size:14px;
+font-size:13px;
 font-weight:bold;
 transition:.3s;
 }
@@ -334,16 +340,51 @@ background:#111;
 color:white;
 }
 
-/* BRAND */
+
+/* ================= QUALITY ================= */
+
+.quality{
+background:white;
+}
+
+.quality-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.quality-card{
+padding:35px 25px;
+text-align:center;
+border:1px solid #e5e2dc;
+}
+
+.quality-icon{
+font-size:35px;
+margin-bottom:15px;
+}
+
+.quality-card h3{
+margin-bottom:8px;
+}
+
+.quality-card p{
+color:#777;
+font-size:14px;
+}
+
+
+/* ================= BRAND ================= */
 
 .brand{
-background:#0b0b0b;
+background:#090909;
 color:white;
 text-align:center;
 }
 
 .brand h2{
-font-size:42px;
+font-size:44px;
+letter-spacing:3px;
 margin-bottom:20px;
 }
 
@@ -352,13 +393,45 @@ color:#c9a45c;
 }
 
 .brand p{
-max-width:700px;
+max-width:720px;
 margin:auto;
-color:#aaa;
 font-size:17px;
+color:#aaa;
 }
 
-/* CTA */
+
+/* ================= INSTAGRAM ================= */
+
+.social{
+background:#f0efeb;
+text-align:center;
+}
+
+.social h2{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.social p{
+color:#777;
+margin-bottom:25px;
+}
+
+.instagram-button{
+display:inline-block;
+border:1px solid #111;
+padding:12px 25px;
+font-weight:bold;
+transition:.3s;
+}
+
+.instagram-button:hover{
+background:#111;
+color:white;
+}
+
+
+/* ================= CTA ================= */
 
 .cta{
 background:#c9a45c;
@@ -367,11 +440,11 @@ text-align:center;
 
 .cta h2{
 font-size:42px;
-margin-bottom:15px;
+margin-bottom:12px;
 }
 
 .cta p{
-margin-bottom:30px;
+margin-bottom:28px;
 }
 
 .cta .button{
@@ -379,18 +452,21 @@ background:#111;
 color:white;
 }
 
+
+/* ================= FOOTER ================= */
+
 footer{
-background:#080808;
+background:#070707;
 color:white;
-padding:50px 25px;
+padding:55px 25px 30px;
 }
 
 .footer-content{
 max-width:1250px;
 margin:auto;
-display:flex;
-justify-content:space-between;
-gap:40px;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:50px;
 }
 
 .footer-logo{
@@ -403,21 +479,42 @@ letter-spacing:3px;
 color:#c9a45c;
 }
 
+.footer-title{
+font-weight:bold;
+margin-bottom:10px;
+}
+
 .footer-text{
 color:#777;
-margin-top:10px;
+font-size:14px;
+}
+
+.footer-links{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.footer-links a{
+color:#888;
+font-size:14px;
+}
+
+.footer-links a:hover{
+color:#c9a45c;
 }
 
 .copyright{
 max-width:1250px;
-margin:35px auto 0;
+margin:40px auto 0;
 padding-top:20px;
 border-top:1px solid #222;
 color:#666;
-font-size:13px;
+font-size:12px;
 }
 
-/* MOBILE */
+
+/* ================= MOBILE ================= */
 
 @media(max-width:768px){
 
@@ -439,6 +536,7 @@ nav a{
 font-size:11px;
 }
 
+nav a:nth-child(1),
 nav a:nth-child(2),
 nav a:nth-child(3){
 display:none;
@@ -449,7 +547,7 @@ padding:6px 9px;
 }
 
 .hero{
-min-height:600px;
+min-height:620px;
 background-position:center;
 }
 
@@ -458,7 +556,7 @@ padding:40px 20px;
 }
 
 .hero h1{
-font-size:52px;
+font-size:54px;
 }
 
 .hero p{
@@ -469,21 +567,26 @@ section{
 padding:65px 20px;
 }
 
+.section-title{
+margin-bottom:35px;
+}
+
 .section-title h2{
 font-size:30px;
 }
 
 .category-grid,
-.products{
+.products,
+.quality-grid{
 grid-template-columns:1fr;
 }
 
 .category{
-height:390px;
+height:400px;
 }
 
 .product-image{
-height:330px;
+height:340px;
 }
 
 .brand h2,
@@ -492,14 +595,20 @@ font-size:30px;
 }
 
 .footer-content{
-flex-direction:column;
+grid-template-columns:1fr;
+gap:30px;
 }
 
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
@@ -510,17 +619,35 @@ PRIME <span>CRAFTER</span>
 </a>
 
 <nav>
-<a href="#koleksiyon">Koleksiyon</a>
-<a href="#urunler">Ürünler</a>
-<a href="#hakkimizda">Hakkımızda</a>
-<a href="#iletisim">İletişim</a>
-<a href="#sepet" class="cart">🛒 Sepet</a>
+
+<a href="#koleksiyon">
+Koleksiyon
+</a>
+
+<a href="#urunler">
+Ürünler
+</a>
+
+<a href="#hakkimizda">
+Hakkımızda
+</a>
+
+<a href="#iletisim">
+İletişim
+</a>
+
+<a href="#sepet" class="cart">
+🛒 Sepet
+</a>
+
 </nav>
 
 </div>
 
 </header>
 
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -549,6 +676,8 @@ Koleksiyonu Keşfet
 </section>
 
 
+<!-- CATEGORIES -->
+
 <section class="categories" id="koleksiyon">
 
 <div class="container">
@@ -563,17 +692,21 @@ Tarzına uygun parçayı bul.
 
 </div>
 
+
 <div class="category-grid">
+
 
 <div class="category">
 
 <div class="category-content">
 
-<span>01 / COLLECTION</span>
+<small>01 / COLLECTION</small>
 
 <h3>Kolyeler</h3>
 
-<a href="#urunler">Koleksiyonu Gör →</a>
+<a href="#urunler">
+Koleksiyonu Gör →
+</a>
 
 </div>
 
@@ -584,11 +717,13 @@ Tarzına uygun parçayı bul.
 
 <div class="category-content">
 
-<span>02 / COLLECTION</span>
+<small>02 / COLLECTION</small>
 
 <h3>Bileklikler</h3>
 
-<a href="#urunler">Koleksiyonu Gör →</a>
+<a href="#urunler">
+Koleksiyonu Gör →
+</a>
 
 </div>
 
@@ -599,15 +734,18 @@ Tarzına uygun parçayı bul.
 
 <div class="category-content">
 
-<span>03 / COLLECTION</span>
+<small>03 / COLLECTION</small>
 
 <h3>Yüzükler</h3>
 
-<a href="#urunler">Koleksiyonu Gör →</a>
+<a href="#urunler">
+Koleksiyonu Gör →
+</a>
 
 </div>
 
 </div>
+
 
 </div>
 
@@ -615,6 +753,8 @@ Tarzına uygun parçayı bul.
 
 </section>
 
+
+<!-- PRODUCTS -->
 
 <section class="products-section" id="urunler">
 
@@ -625,13 +765,14 @@ Tarzına uygun parçayı bul.
 <h2>Öne Çıkanlar</h2>
 
 <p>
-PRIME CRAFTER'ın seçilmiş parçaları.
+PRIME CRAFTER seçkisini keşfet.
 </p>
 
 </div>
 
 
 <div class="products">
+
 
 <div class="product">
 
@@ -643,10 +784,39 @@ PRIME CRAFTER'ın seçilmiş parçaları.
 NECKLACE
 </div>
 
-<h3>Minimal Kolye</h3>
+<h3>Minimal Çelik Kolye</h3>
 
 <p>
-Modern ve sade tasarımıyla günlük kullanıma uygun.
+Günlük kullanıma uygun, sade ve modern tasarım.
+</p>
+
+<div class="price">
+549 ₺
+</div>
+
+<a href="#" class="product-button">
+Ürünü İncele
+</a>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<div class="product-image"></div>
+
+<div class="product-info">
+
+<div class="product-tag">
+BRACELET
+</div>
+
+<h3>Premium Çelik Bileklik</h3>
+
+<p>
+Zamansız tasarımıyla stilinizi tamamlayan özel parça.
 </p>
 
 <div class="price">
@@ -669,13 +839,13 @@ Modern ve sade tasarımıyla günlük kullanıma uygun.
 <div class="product-info">
 
 <div class="product-tag">
-BRACELET
+RING
 </div>
 
-<h3>Premium Bileklik</h3>
+<h3>Minimal Çelik Yüzük</h3>
 
 <p>
-Zarif detaylarıyla stilinizi tamamlayan özel tasarım.
+Sade ve modern görünümüyle her stile uyum sağlar.
 </p>
 
 <div class="price">
@@ -691,33 +861,77 @@ Zarif detaylarıyla stilinizi tamamlayan özel tasarım.
 </div>
 
 
-<div class="product">
-
-<div class="product-image"></div>
-
-<div class="product-info">
-
-<div class="product-tag">
-RING
 </div>
 
-<h3>Minimal Yüzük</h3>
+</div>
+
+</section>
+
+
+<!-- QUALITY -->
+
+<section class="quality">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>PRIME CRAFTER Farkı</h2>
 
 <p>
-Sade, modern ve zamansız bir görünüm.
+Sadece takı değil, güvenilir bir alışveriş deneyimi.
 </p>
 
-<div class="price">
-399 ₺
 </div>
 
-<a href="#" class="product-button">
-Ürünü İncele
-</a>
+
+<div class="quality-grid">
+
+
+<div class="quality-card">
+
+<div class="quality-icon">
+✦
+</div>
+
+<h3>Özenle Seçildi</h3>
+
+<p>
+Koleksiyonumuzdaki parçaları tasarım ve kullanım açısından seçiyoruz.
+</p>
 
 </div>
 
+
+<div class="quality-card">
+
+<div class="quality-icon">
+◇
 </div>
+
+<h3>Şık Paketleme</h3>
+
+<p>
+Siparişlerinizi PRIME CRAFTER ruhuna uygun şekilde hazırlıyoruz.
+</p>
+
+</div>
+
+
+<div class="quality-card">
+
+<div class="quality-icon">
+✓
+</div>
+
+<h3>Güvenli Alışveriş</h3>
+
+<p>
+Müşteri memnuniyetini ve güvenli alışveriş deneyimini önemsiyoruz.
+</p>
+
+</div>
+
 
 </div>
 
@@ -725,18 +939,22 @@ Sade, modern ve zamansız bir görünüm.
 
 </section>
 
+
+<!-- BRAND -->
 
 <section class="brand" id="hakkimizda">
 
 <div class="container">
 
-<h2>PRIME <span>CRAFTER</span></h2>
+<h2>
+PRIME <span>CRAFTER</span>
+</h2>
 
 <p>
-Takı bizim için sadece bir aksesuar değil,
+Takı bizim için yalnızca bir aksesuar değil,
 kişisel tarzın bir parçasıdır.
-Bu nedenle sade, modern ve zamansız parçaları
-bir araya getiriyoruz.
+Modern, sade ve zamansız parçaları
+ulaşılabilir bir premium deneyimle sunmak için buradayız.
 </p>
 
 </div>
@@ -744,11 +962,36 @@ bir araya getiriyoruz.
 </section>
 
 
+<!-- SOCIAL -->
+
+<section class="social">
+
+<div class="container">
+
+<h2>PRIME CRAFTER'ı Takip Et</h2>
+
+<p>
+Yeni koleksiyonları ve özel ürünleri keşfet.
+</p>
+
+<a href="#" class="instagram-button">
+Instagram →
+</a>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
 <section class="cta" id="iletisim">
 
 <div class="container">
 
-<h2>Tarzını detaylarda göster.</h2>
+<h2>
+Tarzını detaylarda göster.
+</h2>
 
 <p>
 PRIME CRAFTER koleksiyonunu keşfet.
@@ -763,9 +1006,12 @@ Alışverişe Başla
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
 <div class="footer-content">
+
 
 <div>
 
@@ -782,7 +1028,34 @@ Modern ve zamansız takılar.
 
 <div>
 
-<strong>İletişim</strong>
+<div class="footer-title">
+Kategoriler
+</div>
+
+<div class="footer-links">
+
+<a href="#urunler">
+Kolyeler
+</a>
+
+<a href="#urunler">
+Bileklikler
+</a>
+
+<a href="#urunler">
+Yüzükler
+</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="footer-title">
+İletişim
+</div>
 
 <p class="footer-text">
 info@primecrafter.com
@@ -790,14 +1063,18 @@ info@primecrafter.com
 
 </div>
 
+
 </div>
 
 
 <div class="copyright">
-© 2026 PRIME CRAFTER. Tüm hakları saklıdır.
+
+©️ 2026 PRIME CRAFTER. Tüm hakları saklıdır.
+
 </div>
 
 </footer>
+
 
 </body>
 </html>
