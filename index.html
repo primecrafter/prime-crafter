@@ -2190,5 +2190,79 @@ function checkout(){
 }
 
 </script>
+  <script>
+
+/* PRIME CRAFTER - KALICI SEPET */
+
+const savedCart =
+localStorage.getItem("primeCrafterCart");
+
+if(savedCart){
+
+  try{
+
+    cart = JSON.parse(savedCart);
+
+  }catch(error){
+
+    cart = [];
+
+  }
+
+}
+
+updateCart();
+
+
+/* SEPETİ KAYDET */
+
+const originalAddToCart = addToCart;
+
+addToCart = function(index){
+
+  originalAddToCart(index);
+
+  localStorage.setItem(
+    "primeCrafterCart",
+    JSON.stringify(cart)
+  );
+
+};
+
+
+/* MİKTAR DEĞİŞİNCE KAYDET */
+
+const originalChangeQuantity =
+changeQuantity;
+
+changeQuantity = function(index,change){
+
+  originalChangeQuantity(index,change);
+
+  localStorage.setItem(
+    "primeCrafterCart",
+    JSON.stringify(cart)
+  );
+
+};
+
+
+/* ÜRÜN SİLİNİNCE KAYDET */
+
+const originalRemoveItem =
+removeItem;
+
+removeItem = function(index){
+
+  originalRemoveItem(index);
+
+  localStorage.setItem(
+    "primeCrafterCart",
+    JSON.stringify(cart)
+  );
+
+};
+
+</script>
 </body>
 </html>
