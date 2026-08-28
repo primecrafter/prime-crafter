@@ -2120,5 +2120,75 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 </script>
+  <script>
+
+function checkout(){
+
+  if(cart.length === 0){
+
+    alert("Sepetiniz boş.");
+
+    return;
+
+  }
+
+  let message =
+  "Merhaba PRIME CRAFTER,%0A%0A" +
+  "Sipariş vermek istiyorum:%0A%0A";
+
+  let total = 0;
+
+  cart.forEach(function(item){
+
+    const itemTotal =
+    item.price * item.quantity;
+
+    total += itemTotal;
+
+    message +=
+    "• " +
+    item.name +
+    " x" +
+    item.quantity +
+    " - " +
+    itemTotal +
+    " TL%0A";
+
+  });
+
+  message +=
+  "%0A*Toplam: " +
+  total.toLocaleString("tr-TR") +
+  " TL*%0A%0A" +
+  "Ad Soyad:%0A" +
+  "Adres:%0A" +
+  "Telefon:";
+
+
+  /*
+  BURAYA KENDİ WHATSAPP NUMARANI YAZACAĞIZ.
+  ÖRNEK:
+  905321234567
+  */
+
+  const phone =
+  "905412425866";
+
+
+  const whatsappURL =
+  "https://wa.me/" +
+  phone +
+  "?text=" +
+  message;
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+}
+
+</script>
 </body>
 </html>
