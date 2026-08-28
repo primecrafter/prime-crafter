@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PRIME CRAFTER | Kaliteli Ürünler</title>
+
+  <meta name="description" content="PRIME CRAFTER - Özenle seçilmiş kaliteli ve kullanışlı ürünler.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f5;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #111;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #c9a45c;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #c9a45c;
+    }
+
+    .cart {
+      border: 1px solid #555;
+      padding: 8px 15px;
+      border-radius: 5px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+        url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 40px 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 80px);
+      line-height: 1;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #c9a45c;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 20px;
+      color: #eee;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #c9a45c;
+      color: #111;
+      padding: 14px 30px;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 80px 25px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #777;
+    }
+
+    /* FEATURES */
+
+    .features {
+      background: white;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 35px 25px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+    }
+
+    .feature-icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #777;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e5e5e5;
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .product-image {
+      height: 280px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 18px;
+    }
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+      color: #111;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #bbb;
+      margin-bottom: 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #080808;
+      color: white;
+      padding: 45px 25px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .footer-logo span {
+      color: #c9a45c;
+    }
+
+    .footer-text {
+      color: #888;
+      margin-top: 10px;
+      max-width: 400px;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #222;
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 768px) {
+
+      .navbar {
+        height: 65px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .cart {
+        padding: 6px 9px;
+      }
+
+      .hero {
+        min-height: 550px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+
+      .feature-grid,
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="navbar">
+
+      <a href="#" class="logo">
+        PRIME <span>CRAFTER</span>
+      </a>
+
+      <nav>
+        <a href="#urunler">Ürünler</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#iletisim">İletişim</a>
+        <a href="#sepet" class="cart">🛒 Sepet</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        PRIME<br>
+        <span>CRAFTER</span>
+      </h1>
+
+      <p>
+        Kaliteli, kullanışlı ve özenle seçilmiş ürünleri
+        modern bir alışveriş deneyimiyle keşfedin.
+      </p>
+
+      <a href="#urunler" class="button">
+        Ürünleri Keşfet
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Neden PRIME CRAFTER?</h2>
+        <p>Kaliteyi ve müşteri memnuniyetini ön planda tutuyoruz.</p>
+      </div>
+
+      <div class="feature-grid">
+
+        <div class="feature">
+          <div class="feature-icon">⭐</div>
+          <h3>Kaliteli Ürünler</h3>
+          <p>
+            Ürünlerimizi kalite ve kullanışlılık açısından
+            özenle seçiyoruz.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">📦</div>
+          <h3>Güvenli Alışveriş</h3>
+          <p>
+            Siparişlerinizi güvenli ve özenli şekilde
+            hazırlıyoruz.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <h3>Müşteri Memnuniyeti</h3>
+          <p>
+            Satış öncesi ve sonrasında müşterilerimizin
+            yanındayız.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+
+  <section id="urunler">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Öne Çıkan Ürünler</h2>
+
+        <p>
+          PRIME CRAFTER ürünlerini keşfedin.
+        </p>
+
+      </div>
+
+
+      <div class="products">
+
+        <div class="product">
+
+          <div class="product-image">
+            ÜRÜN FOTOĞRAFI
+          </div>
+
+          <div class="product-info">
+
+            <h3>Ürün Adı</h3>
+
+            <p>
+              Ürün açıklaması burada yer alacak.
+            </p>
+
+            <div class="price">
+              0,00 ₺
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="product">
+
+          <div class="product-image">
+            ÜRÜN FOTOĞRAFI
+          </div>
+
+          <div class="product-info">
+
+            <h3>Ürün Adı</h3>
+
+            <p>
+              Ürün açıklaması burada yer alacak.
+            </p>
+
+            <div class="price">
+              0,00 ₺
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="product">
+
+          <div class="product-image">
+            ÜRÜN FOTOĞRAFI
+          </div>
+
+          <div class="product-info">
+
+            <h3>Ürün Adı</h3>
+
+            <p>
+              Ürün açıklaması burada yer alacak.
+            </p>
+
+            <div class="price">
+              0,00 ₺
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="hakkimizda" class="features">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>PRIME CRAFTER</h2>
+
+        <p>
+          Sadece ürün satmak değil, doğru ürünü doğru müşteriye
+          ulaştırmak için buradayız.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta" id="iletisim">
+
+    <div class="container">
+
+      <h2>Aradığınız ürünü keşfedin.</h2>
+
+      <p>
+        PRIME CRAFTER dünyasına hoş geldiniz.
+      </p>
+
+      <a href="#urunler" class="button">
+        Alışverişe Başla
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+
+        <div class="footer-logo">
+          PRIME <span>CRAFTER</span>
+        </div>
+
+        <p class="footer-text">
+          Kaliteli ve özenle seçilmiş ürünler.
+        </p>
+
+      </div>
+
+      <div>
+        <strong>İletişim</strong>
+        <p class="footer-text">
+          E-posta: info@primecrafter.com
+        </p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 PRIME CRAFTER. Tüm hakları saklıdır.
+    </div>
+
+  </footer>
+
+</body>
+</html>
