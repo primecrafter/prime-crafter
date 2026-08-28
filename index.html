@@ -1406,6 +1406,269 @@ updateCart();
 
 </script>
 
+<!-- PRODUCT DETAIL MODAL -->
 
+<div class="product-modal" id="product-modal">
+
+  <div class="product-modal-box">
+
+    <button class="product-modal-close" onclick="closeProduct()">
+      ×
+    </button>
+
+    <div class="product-modal-image" id="modal-image"></div>
+
+    <div class="product-modal-info">
+
+      <div class="product-tag" id="modal-tag">
+        PRODUCT
+      </div>
+
+      <h2 id="modal-name">
+        Ürün
+      </h2>
+
+      <p id="modal-description">
+        Ürün açıklaması.
+      </p>
+
+      <div class="modal-price" id="modal-price">
+        0 ₺
+      </div>
+
+      <button
+        class="modal-cart-button"
+        id="modal-cart-button">
+        Sepete Ekle
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<style>
+
+.product-modal{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.7);
+
+z-index:3000;
+
+align-items:center;
+
+justify-content:center;
+
+padding:20px;
+
+}
+
+.product-modal-box{
+
+background:white;
+
+width:900px;
+
+max-width:100%;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+position:relative;
+
+max-height:90vh;
+
+overflow:auto;
+
+}
+
+.product-modal-image{
+
+min-height:500px;
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+.product-modal-info{
+
+padding:55px 40px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+.product-modal-info h2{
+
+font-size:35px;
+
+margin:10px 0 15px;
+
+}
+
+.product-modal-info p{
+
+color:#777;
+
+margin-bottom:25px;
+
+}
+
+.modal-price{
+
+font-size:28px;
+
+font-weight:bold;
+
+margin-bottom:25px;
+
+}
+
+.modal-cart-button{
+
+background:#111;
+
+color:white;
+
+border:none;
+
+padding:16px;
+
+font-weight:bold;
+
+font-size:15px;
+
+}
+
+.product-modal-close{
+
+position:absolute;
+
+right:15px;
+
+top:10px;
+
+z-index:5;
+
+border:none;
+
+background:white;
+
+font-size:30px;
+
+width:40px;
+
+height:40px;
+
+cursor:pointer;
+
+}
+
+@media(max-width:700px){
+
+.product-modal-box{
+
+grid-template-columns:1fr;
+
+}
+
+.product-modal-image{
+
+min-height:350px;
+
+}
+
+.product-modal-info{
+
+padding:30px 25px;
+
+}
+
+}
+
+</style>
+  <script>
+
+const productDetails = [
+
+{
+name:"Minimal Çelik Kolye",
+tag:"NECKLACE",
+price:549,
+description:"Günlük kullanıma uygun, sade ve modern tasarıma sahip minimal çelik kolye.",
+image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1200&q=90"
+},
+
+{
+name:"Premium Çelik Bileklik",
+tag:"BRACELET",
+price:499,
+description:"Zamansız tasarımıyla günlük stilinizi tamamlayan premium çelik bileklik.",
+image:"https://images.unsplash.com/photo-1598560917807-1bae44bd2be8?auto=format&fit=crop&w=1200&q=90"
+},
+
+{
+name:"Minimal Çelik Yüzük",
+tag:"RING",
+price:449,
+description:"Sade ve modern görünümüyle farklı kombinlere uyum sağlayan çelik yüzük.",
+image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=90"
+}
+
+];
+
+
+function openProduct(index){
+
+const product=productDetails[index];
+
+document.getElementById("modal-name").textContent=product.name;
+
+document.getElementById("modal-tag").textContent=product.tag;
+
+document.getElementById("modal-description").textContent=product.description;
+
+document.getElementById("modal-price").textContent=product.price+" ₺";
+
+document.getElementById("modal-image").style.backgroundImage=
+"url('"+product.image+"')";
+
+
+document.getElementById("modal-cart-button").onclick=function(){
+
+addToCart(index);
+
+closeProduct();
+
+};
+
+
+document.getElementById("product-modal").style.display="flex";
+
+}
+
+
+function closeProduct(){
+
+document.getElementById("product-modal").style.display="none";
+
+}
+
+</script>
 </body>
 </html>
