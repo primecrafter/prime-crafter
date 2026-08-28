@@ -1717,5 +1717,153 @@ productDetails[2].image =
 "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=95";
 
 </script>
+  <style>
+
+/* PRODUCT BADGE */
+
+.product{
+position:relative;
+}
+
+.product::before{
+content:"YENİ";
+position:absolute;
+top:15px;
+left:15px;
+z-index:5;
+background:#111;
+color:white;
+padding:6px 10px;
+font-size:10px;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+</style>
+  <style>
+
+/* CATEGORY FILTER */
+
+.category-filters{
+display:flex;
+justify-content:center;
+gap:10px;
+margin:-25px 0 45px;
+flex-wrap:wrap;
+}
+
+.category-filter{
+border:1px solid #ccc;
+background:white;
+padding:11px 22px;
+font-size:13px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.category-filter:hover,
+.category-filter.active{
+background:#111;
+color:white;
+border-color:#111;
+}
+
+</style>
+
+<script>
+
+/* CATEGORY FILTER */
+
+const productsSection =
+document.querySelector(".products");
+
+if(productsSection){
+
+const filterArea=document.createElement("div");
+
+filterArea.className="category-filters";
+
+filterArea.innerHTML=`
+
+<button class="category-filter active"
+onclick="filterProducts('all',this)">
+Tümü
+</button>
+
+<button class="category-filter"
+onclick="filterProducts('necklace',this)">
+Kolyeler
+</button>
+
+<button class="category-filter"
+onclick="filterProducts('bracelet',this)">
+Bileklikler
+</button>
+
+<button class="category-filter"
+onclick="filterProducts('ring',this)">
+Yüzükler
+</button>
+
+`;
+
+productsSection.parentNode.insertBefore(
+filterArea,
+productsSection
+);
+
+}
+
+
+function filterProducts(category,button){
+
+document.querySelectorAll(
+".category-filter"
+).forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+button.classList.add("active");
+
+
+const productCards =
+document.querySelectorAll(".product");
+
+
+productCards.forEach(function(product,index){
+
+let type="";
+
+if(index===0){
+type="necklace";
+}
+
+if(index===1){
+type="bracelet";
+}
+
+if(index===2){
+type="ring";
+}
+
+
+if(category==="all" || category===type){
+
+product.style.display="block";
+
+}else{
+
+product.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
 </body>
 </html>
