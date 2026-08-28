@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -32,13 +33,13 @@ text-decoration:none;
 color:inherit;
 }
 
-img{
-max-width:100%;
-display:block;
+button{
+font-family:inherit;
+cursor:pointer;
 }
 
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
 position:sticky;
@@ -92,7 +93,7 @@ border-radius:4px;
 }
 
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
 min-height:720px;
@@ -160,7 +161,7 @@ transform:translateY(-2px);
 }
 
 
-/* ================= GENERAL ================= */
+/* GENERAL */
 
 section{
 padding:90px 25px;
@@ -186,7 +187,7 @@ color:#777;
 }
 
 
-/* ================= CATEGORIES ================= */
+/* CATEGORIES */
 
 .categories{
 background:white;
@@ -255,7 +256,7 @@ padding-bottom:4px;
 }
 
 
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 
 .products-section{
 background:#f7f6f2;
@@ -326,8 +327,9 @@ font-weight:bold;
 
 .product-button{
 display:block;
-text-align:center;
+width:100%;
 border:1px solid #111;
+background:white;
 padding:11px;
 margin-top:18px;
 font-size:13px;
@@ -341,7 +343,7 @@ color:white;
 }
 
 
-/* ================= QUALITY ================= */
+/* QUALITY */
 
 .quality{
 background:white;
@@ -374,7 +376,7 @@ font-size:14px;
 }
 
 
-/* ================= BRAND ================= */
+/* BRAND */
 
 .brand{
 background:#090909;
@@ -400,7 +402,7 @@ color:#aaa;
 }
 
 
-/* ================= INSTAGRAM ================= */
+/* SOCIAL */
 
 .social{
 background:#f0efeb;
@@ -431,7 +433,7 @@ color:white;
 }
 
 
-/* ================= CTA ================= */
+/* CTA */
 
 .cta{
 background:#c9a45c;
@@ -453,7 +455,7 @@ color:white;
 }
 
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
 background:#070707;
@@ -514,7 +516,116 @@ font-size:12px;
 }
 
 
-/* ================= MOBILE ================= */
+/* CART PANEL */
+
+.cart-overlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+z-index:2000;
+}
+
+.cart-panel{
+position:absolute;
+right:0;
+top:0;
+height:100%;
+width:420px;
+max-width:92%;
+background:white;
+padding:25px;
+overflow-y:auto;
+}
+
+.cart-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #ddd;
+padding-bottom:18px;
+margin-bottom:20px;
+}
+
+.cart-header h2{
+font-size:24px;
+}
+
+.close-cart{
+border:none;
+background:none;
+font-size:25px;
+}
+
+.cart-item{
+display:flex;
+gap:15px;
+padding:15px 0;
+border-bottom:1px solid #eee;
+}
+
+.cart-item-info{
+flex:1;
+}
+
+.cart-item-info h4{
+margin-bottom:5px;
+}
+
+.cart-item-price{
+font-weight:bold;
+}
+
+.quantity{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:10px;
+}
+
+.quantity button{
+width:28px;
+height:28px;
+border:1px solid #ccc;
+background:white;
+}
+
+.remove{
+color:#999;
+font-size:12px;
+background:none;
+border:none;
+margin-top:5px;
+}
+
+.cart-total{
+margin-top:25px;
+padding-top:20px;
+border-top:2px solid #111;
+display:flex;
+justify-content:space-between;
+font-size:20px;
+font-weight:bold;
+}
+
+.checkout-button{
+width:100%;
+border:none;
+background:#111;
+color:white;
+padding:15px;
+margin-top:20px;
+font-weight:bold;
+}
+
+.empty-cart{
+text-align:center;
+color:#777;
+padding:50px 10px;
+}
+
+
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -538,7 +649,8 @@ font-size:11px;
 
 nav a:nth-child(1),
 nav a:nth-child(2),
-nav a:nth-child(3){
+nav a:nth-child(3),
+nav a:nth-child(4){
 display:none;
 }
 
@@ -599,16 +711,19 @@ grid-template-columns:1fr;
 gap:30px;
 }
 
+.cart-panel{
+width:100%;
+}
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
-
-<!-- HEADER -->
 
 <header>
 
@@ -620,24 +735,16 @@ PRIME <span>CRAFTER</span>
 
 <nav>
 
-<a href="#koleksiyon">
-Koleksiyon
-</a>
+<a href="#koleksiyon">Koleksiyon</a>
 
-<a href="#urunler">
-Ürünler
-</a>
+<a href="#urunler">Ürünler</a>
 
-<a href="#hakkimizda">
-Hakkımızda
-</a>
+<a href="#hakkimizda">Hakkımızda</a>
 
-<a href="#iletisim">
-İletişim
-</a>
+<a href="#iletisim">İletişim</a>
 
-<a href="#sepet" class="cart">
-🛒 Sepet
+<a href="#" class="cart" onclick="openCart(); return false;">
+🛒 Sepet (<span id="cart-count">0</span>)
 </a>
 
 </nav>
@@ -646,8 +753,6 @@ Hakkımızda
 
 </header>
 
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -675,8 +780,6 @@ Koleksiyonu Keşfet
 
 </section>
 
-
-<!-- CATEGORIES -->
 
 <section class="categories" id="koleksiyon">
 
@@ -754,8 +857,6 @@ Koleksiyonu Gör →
 </section>
 
 
-<!-- PRODUCTS -->
-
 <section class="products-section" id="urunler">
 
 <div class="container">
@@ -794,9 +895,9 @@ Günlük kullanıma uygun, sade ve modern tasarım.
 549 ₺
 </div>
 
-<a href="#" class="product-button">
-Ürünü İncele
-</a>
+<button class="product-button" onclick="addToCart(0)">
+Sepete Ekle
+</button>
 
 </div>
 
@@ -823,9 +924,9 @@ Zamansız tasarımıyla stilinizi tamamlayan özel parça.
 499 ₺
 </div>
 
-<a href="#" class="product-button">
-Ürünü İncele
-</a>
+<button class="product-button" onclick="addToCart(1)">
+Sepete Ekle
+</button>
 
 </div>
 
@@ -852,9 +953,9 @@ Sade ve modern görünümüyle her stile uyum sağlar.
 449 ₺
 </div>
 
-<a href="#" class="product-button">
-Ürünü İncele
-</a>
+<button class="product-button" onclick="addToCart(2)">
+Sepete Ekle
+</button>
 
 </div>
 
@@ -867,8 +968,6 @@ Sade ve modern görünümüyle her stile uyum sağlar.
 
 </section>
 
-
-<!-- QUALITY -->
 
 <section class="quality">
 
@@ -940,8 +1039,6 @@ Müşteri memnuniyetini ve güvenli alışveriş deneyimini önemsiyoruz.
 </section>
 
 
-<!-- BRAND -->
-
 <section class="brand" id="hakkimizda">
 
 <div class="container">
@@ -962,8 +1059,6 @@ ulaşılabilir bir premium deneyimle sunmak için buradayız.
 </section>
 
 
-<!-- SOCIAL -->
-
 <section class="social">
 
 <div class="container">
@@ -982,8 +1077,6 @@ Instagram →
 
 </section>
 
-
-<!-- CTA -->
 
 <section class="cta" id="iletisim">
 
@@ -1005,8 +1098,6 @@ Alışverişe Başla
 
 </section>
 
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -1075,53 +1166,246 @@ info@primecrafter.com
 
 </footer>
 
-<!-- PRIME CRAFTER CART -->
+
+<!-- CART -->
+
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart(event)">
+
+<div class="cart-panel" onclick="event.stopPropagation()">
+
+<div class="cart-header">
+
+<h2>Sepetim</h2>
+
+<button class="close-cart" onclick="closeCart()">
+×
+</button>
+
+</div>
+
+<div id="cart-items"></div>
+
+<div class="cart-total">
+
+<span>Toplam</span>
+
+<span id="cart-total">0 ₺</span>
+
+</div>
+
+<button class="checkout-button" onclick="checkout()">
+Siparişi Tamamla
+</button>
+
+</div>
+
+</div>
+
 
 <script>
 
+const products = [
+
+{
+name:"Minimal Çelik Kolye",
+price:549
+},
+
+{
+name:"Premium Çelik Bileklik",
+price:499
+},
+
+{
+name:"Minimal Çelik Yüzük",
+price:449
+}
+
+];
+
+
 let cart = [];
 
-const products = [
-  {
-    name: "Minimal Çelik Kolye",
-    price: 549
-  },
-  {
-    name: "Premium Çelik Bileklik",
-    price: 499
-  },
-  {
-    name: "Minimal Çelik Yüzük",
-    price: 449
-  }
-];
 
 function addToCart(index){
 
-  cart.push(products[index]);
+const product = products[index];
 
-  updateCart();
+const existing = cart.find(item => item.name === product.name);
 
-  alert("Ürün sepete eklendi.");
+if(existing){
+
+existing.quantity++;
+
+}else{
+
+cart.push({
+name:product.name,
+price:product.price,
+quantity:1
+});
 
 }
+
+updateCart();
+
+openCart();
+
+}
+
 
 function updateCart(){
 
-  let total = 0;
+const count = cart.reduce(
+(total,item)=>total + item.quantity,
+0
+);
 
-  cart.forEach(product => {
-    total += product.price;
-  });
+document.getElementById("cart-count").textContent=count;
 
-  const cartButton = document.querySelector(".cart");
 
-  if(cartButton){
-    cartButton.innerHTML = "🛒 Sepet (" + cart.length + ")";
-  }
+const container =
+document.getElementById("cart-items");
+
+
+if(cart.length===0){
+
+container.innerHTML=
+'<div class="empty-cart">Sepetiniz şu anda boş.</div>';
+
+document.getElementById("cart-total").textContent="0 ₺";
+
+return;
 
 }
 
+
+container.innerHTML="";
+
+
+let total=0;
+
+
+cart.forEach((item,index)=>{
+
+total += item.price * item.quantity;
+
+
+const div=document.createElement("div");
+
+div.className="cart-item";
+
+
+div.innerHTML=`
+
+<div class="cart-item-info">
+
+<h4>${item.name}</h4>
+
+<div class="cart-item-price">
+${item.price} ₺
+</div>
+
+<div class="quantity">
+
+<button onclick="changeQuantity(${index},-1)">
+−
+</button>
+
+<span>${item.quantity}</span>
+
+<button onclick="changeQuantity(${index},1)">
++
+</button>
+
+</div>
+
+<button class="remove" onclick="removeItem(${index})">
+Ürünü kaldır
+</button>
+
+</div>
+
+`;
+
+container.appendChild(div);
+
+});
+
+
+document.getElementById("cart-total").textContent=
+total.toLocaleString("tr-TR")+" ₺";
+
+}
+
+
+function changeQuantity(index,change){
+
+cart[index].quantity += change;
+
+if(cart[index].quantity<=0){
+
+cart.splice(index,1);
+
+}
+
+updateCart();
+
+}
+
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+function openCart(){
+
+document.getElementById("cart-overlay").style.display="block";
+
+updateCart();
+
+}
+
+
+function closeCart(event){
+
+if(event && event.target !== event.currentTarget){
+
+return;
+
+}
+
+document.getElementById("cart-overlay").style.display="none";
+
+}
+
+
+function checkout(){
+
+if(cart.length===0){
+
+alert("Sepetiniz boş.");
+
+return;
+
+}
+
+alert(
+"Sipariş sistemi bir sonraki aşamada aktif edilecek."
+);
+
+}
+
+
+updateCart();
+
 </script>
+
+
 </body>
 </html>
