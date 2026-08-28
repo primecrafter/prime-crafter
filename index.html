@@ -2059,5 +2059,66 @@ button.classList.add("active");
 });
 
 </script>
+  <style>
+.favorite-button{
+  position:absolute;
+  top:15px;
+  right:15px;
+  z-index:50;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#222;
+  font-size:25px;
+  line-height:42px;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.15);
+  cursor:pointer;
+}
+
+.favorite-button.active{
+  color:#c9a45c;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const productCards = document.querySelectorAll(".product");
+
+  productCards.forEach(function(product, index){
+
+    product.style.position = "relative";
+
+    const heart = document.createElement("button");
+
+    heart.className = "favorite-button";
+    heart.type = "button";
+    heart.innerHTML = "♡";
+    heart.setAttribute("aria-label","Favorilere ekle");
+
+    heart.addEventListener("click", function(e){
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      heart.classList.toggle("active");
+
+      if(heart.classList.contains("active")){
+        heart.innerHTML = "♥️";
+      }else{
+        heart.innerHTML = "♡";
+      }
+
+    });
+
+    product.appendChild(heart);
+
+  });
+
+});
+</script>
 </body>
 </html>
