@@ -1068,6 +1068,8 @@ const products = [
 name:"Minimal Çelik Kolye",
 category:"Kolye",
 price:549,
+stock:12,
+material:"316L Paslanmaz Çelik",
 description:"Günlük kullanıma uygun sade ve modern çelik kolye.",
 photos:[
 "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=90",
@@ -1080,6 +1082,8 @@ photos:[
 name:"Premium Çelik Bileklik",
 category:"Bileklik",
 price:499,
+stock:8,
+material:"316L Paslanmaz Çelik",
 description:"Şık ve zamansız tasarımıyla günlük stilinizi tamamlar.",
 photos:[
 "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1000&q=90",
@@ -1092,7 +1096,10 @@ photos:[
 name:"Minimal Çelik Yüzük",
 category:"Yüzük",
 price:449,
+stock:6,
+material:"316L Paslanmaz Çelik",
 description:"Sade ve modern çizgileriyle her stile uyum sağlar.",
+sizes:["8","9","10","11","12"],
 photos:[
 "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=90",
 "https://images.unsplash.com/photo-1598560917807-1bae44bd2be8?auto=format&fit=crop&w=1000&q=90",
@@ -1104,6 +1111,8 @@ photos:[
 name:"Zarif Gold Kolye",
 category:"Kolye",
 price:599,
+stock:10,
+material:"316L Paslanmaz Çelik",
 description:"Zarif görünümüyle özel günlerde ve günlük kullanımda şık bir seçenek.",
 photos:[
 "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1000&q=90",
@@ -1116,6 +1125,8 @@ photos:[
 name:"Classic Çelik Bileklik",
 category:"Bileklik",
 price:529,
+stock:7,
+material:"316L Paslanmaz Çelik",
 description:"Minimal çizgileriyle sade ve güçlü bir görünüm sunar.",
 photos:[
 "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1000&q=90",
@@ -1128,7 +1139,10 @@ photos:[
 name:"Silver Minimal Yüzük",
 category:"Yüzük",
 price:479,
+stock:5,
+material:"316L Paslanmaz Çelik",
 description:"Sade tasarımı sayesinde farklı kombinlerle kolayca kullanılabilir.",
+sizes:["8","9","10","11","12"],
 photos:[
 "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=90",
 "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=90",
@@ -1140,6 +1154,8 @@ photos:[
 name:"İnce Zincir Kolye",
 category:"Kolye",
 price:579,
+stock:9,
+material:"316L Paslanmaz Çelik",
 description:"Hafif ve zarif yapısıyla günlük kombinlerinize uyum sağlar.",
 photos:[
 "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1000&q=90",
@@ -1152,6 +1168,8 @@ photos:[
 name:"Luxury Charm Bileklik",
 category:"Bileklik",
 price:649,
+stock:4,
+material:"316L Paslanmaz Çelik",
 description:"Zarif detaylarıyla premium bir görünüm için tasarlanmıştır.",
 photos:[
 "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1000&q=90",
@@ -1164,7 +1182,10 @@ photos:[
 name:"Classic Gold Yüzük",
 category:"Yüzük",
 price:529,
+stock:6,
+material:"316L Paslanmaz Çelik",
 description:"Klasik ve modern görünümü bir araya getiren zarif yüzük.",
+sizes:["8","9","10","11","12"],
 photos:[
 "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1000&q=90",
 "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=90",
@@ -1176,6 +1197,8 @@ photos:[
 name:"Minimal Halka Küpe",
 category:"Küpe",
 price:399,
+stock:15,
+material:"316L Paslanmaz Çelik",
 description:"Günlük kullanıma uygun sade ve modern halka küpe.",
 photos:[
 "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=1000&q=90",
@@ -1188,6 +1211,8 @@ photos:[
 name:"Gold Mini Küpe",
 category:"Küpe",
 price:429,
+stock:11,
+material:"316L Paslanmaz Çelik",
 description:"Minimal tasarımıyla günlük kombinlerin tamamlayıcısı.",
 photos:[
 "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1000&q=90",
@@ -1200,6 +1225,8 @@ photos:[
 name:"Premium Taşlı Küpe",
 category:"Küpe",
 price:699,
+stock:3,
+material:"316L Paslanmaz Çelik",
 description:"Özel davetler ve şık kombinler için dikkat çekici tasarım.",
 photos:[
 "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=90",
@@ -1209,6 +1236,17 @@ photos:[
 }
 
 ];
+
+
+let cart =
+JSON.parse(localStorage.getItem("primeCrafterCart") || "[]");
+
+let favorites =
+JSON.parse(localStorage.getItem("primeCrafterFavorites") || "[]");
+
+let currentProduct = null;
+
+let currentPhoto = 0;
 
 
 let cart =
