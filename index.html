@@ -1255,7 +1255,7 @@ let currentPhoto = 0;
 function renderProducts(list=products){
 
 const container =
-document.getElementById("products");
+ElementById("products");
 
 container.innerHTML="";
 
@@ -1393,19 +1393,81 @@ currentPhoto=0;
 
 const product=products[index];
 
-document.getElementById("modal-name")
+ElementById("modal-name")
 .textContent=product.name;
 
-document.getElementById("modal-tag")
+ElementById("modal-tag")
 .textContent=product.category;
 
-document.getElementById("modal-description")
+ElementById("modal-description")
 .textContent=product.description;
 
-document.getElementById("modal-price")
+ElementById("modal-price")
 .textContent=
 product.price.toLocaleString("tr-TR")+" ₺";
+const modalInfo = document.querySelector(".modal-info");
 
+let oldOptions = document.getElementById("product-options");
+
+if(oldOptions){
+oldOptions.remove();
+}
+
+const options = document.createElement("div");
+
+options.id = "product-options";
+
+options.style.marginBottom = "20px";
+
+let html = `
+<div style="
+font-size:14px;
+margin-bottom:12px;
+">
+📦 Stok: <strong>${product.stock} adet</strong>
+</div>
+
+<div style="
+font-size:14px;
+margin-bottom:12px;
+">
+🔩 Materyal: <strong>${product.material}</strong>
+</div>
+`;
+
+if(product.sizes){
+
+html += `
+<label style="
+display:block;
+font-size:14px;
+font-weight:bold;
+margin-bottom:8px;
+">
+Beden Seç:
+</label>
+
+<select id="product-size" style="
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+background:white;
+margin-bottom:10px;
+">
+<option value="">Beden seçiniz</option>
+${product.sizes.map(size =>
+`<option value="${size}">${size}</option>`
+).join("")}
+</select>
+`;
+
+}
+
+options.innerHTML = html;
+
+document
+.querySelector(".modal-add")
+.before(options);
 showPhoto();
 
 document.getElementById("product-modal")
@@ -1463,6 +1525,23 @@ document.getElementById("product-modal")
 
 
 function addModalProduct(){
+
+const product = products[currentProduct];
+
+if(product.sizes){
+
+const size =
+document.getElementById("product-size").value;
+
+if(!size){
+
+alert("Lütfen yüzük bedenini seçiniz.");
+
+return;
+
+}
+
+}
 
 addToCart(currentProduct);
 
