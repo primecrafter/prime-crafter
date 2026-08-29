@@ -1682,6 +1682,153 @@ renderProducts();
 updateCart();
 
 </script>
+<style>
 
+/* GELİŞMİŞ ÜRÜN DETAYI */
+
+.modal-info{
+position:relative;
+}
+
+.modal-favorite{
+width:44px;
+height:44px;
+border:1px solid #ddd;
+background:white;
+border-radius:50%;
+font-size:23px;
+margin-bottom:20px;
+}
+
+.modal-favorite.active{
+color:#c9a45c;
+}
+
+.modal-question{
+display:block;
+text-align:center;
+margin-top:10px;
+padding:13px;
+border:1px solid #111;
+color:#111;
+font-weight:bold;
+font-size:13px;
+}
+
+.modal-question:hover{
+background:#111;
+color:white;
+}
+
+@media(max-width:700px){
+
+.modal-info h2{
+font-size:27px;
+}
+
+}
+
+</style>
+
+<script>
+
+/* GELİŞMİŞ ÜRÜN DETAYI */
+
+const oldOpenProduct = openProduct;
+
+openProduct = function(index){
+
+  oldOpenProduct(index);
+
+  const info =
+  document.querySelector(".modal-info");
+
+  let fav =
+  document.querySelector(".modal-favorite");
+
+  if(!fav){
+
+    fav=document.createElement("button");
+
+    fav.className="modal-favorite";
+
+    info.insertBefore(
+      fav,
+      document.getElementById("modal-name")
+    );
+
+  }
+
+  fav.innerHTML =
+    favorites.includes(index) ? "♥️" : "♡";
+
+  fav.classList.toggle(
+    "active",
+    favorites.includes(index)
+  );
+
+  fav.onclick=function(){
+
+    if(favorites.includes(index)){
+
+      favorites =
+      favorites.filter(i=>i!==index);
+
+    }else{
+
+      favorites.push(index);
+
+    }
+
+    localStorage.setItem(
+      "primeCrafterFavorites",
+      JSON.stringify(favorites)
+    );
+
+    fav.innerHTML =
+      favorites.includes(index) ? "♥️" : "♡";
+
+    fav.classList.toggle(
+      "active",
+      favorites.includes(index)
+    );
+
+  };
+
+
+  let question =
+  document.querySelector(".modal-question");
+
+  if(!question){
+
+    question=document.createElement("a");
+
+    question.className="modal-question";
+
+    document
+      .querySelector(".modal-add")
+      .after(question);
+
+  }
+
+
+  const product=products[index];
+
+  question.textContent =
+    "📲 WhatsApp'tan Ürün Hakkında Sor";
+
+  question.href =
+    "https://wa.me/905XXXXXXXXX?text=" +
+    encodeURIComponent(
+      "Merhaba PRIME CRAFTER, " +
+      product.name +
+      " ürünü hakkında bilgi almak istiyorum."
+    );
+
+  question.target="_blank";
+
+};
+
+</script>
 </body>
 </html>
