@@ -3573,17 +3573,22 @@ openProduct = function(index){
 };
 
 </script>
-   <style>
+<style>
 
-/* BEDEN SEÇİMİNİ TAMAMEN GİZLE /
+/* BEDEN SEÇİMİNİ GİZLE */
 #product-options{
     display:none !important;
 }
 
-/ ESKİ STOK / MATERYAL ALANINI DA GİZLE */
+/* SADECE YENİ MATERYAL - STOK - KATEGORİ ALANI */
 #premium-product-details{
     display:flex !important;
     flex-direction:column;
+}
+
+/* ESKİ TEKRARLARI GİZLE */
+.modal-info > .product-detail-line{
+    display:none !important;
 }
 
 </style>
