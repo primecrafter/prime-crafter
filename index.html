@@ -1387,30 +1387,26 @@ renderProducts();
 
 function openProduct(index){
 
-currentProduct=index;
+currentProduct = index;
+currentPhoto = 0;
 
-currentPhoto=0;
+const product = products[index];
 
-const product=products[index];
+document.getElementById("modal-name").textContent = product.name;
 
-ElementById("modal-name")
-.textContent=product.name;
+document.getElementById("modal-tag").textContent = product.category;
 
-ElementById("modal-tag")
-.textContent=product.category;
+document.getElementById("modal-description").textContent = product.description;
 
-ElementById("modal-description")
-.textContent=product.description;
+document.getElementById("modal-price").textContent =
+product.price.toLocaleString("tr-TR") + " ₺";
 
-ElementById("modal-price")
-.textContent=
-product.price.toLocaleString("tr-TR")+" ₺";
 const modalInfo = document.querySelector(".modal-info");
 
 let oldOptions = document.getElementById("product-options");
 
 if(oldOptions){
-oldOptions.remove();
+    oldOptions.remove();
 }
 
 const options = document.createElement("div");
@@ -1454,10 +1450,13 @@ border:1px solid #ccc;
 background:white;
 margin-bottom:10px;
 ">
+
 <option value="">Beden seçiniz</option>
+
 ${product.sizes.map(size =>
 `<option value="${size}">${size}</option>`
 ).join("")}
+
 </select>
 `;
 
@@ -1465,16 +1464,13 @@ ${product.sizes.map(size =>
 
 options.innerHTML = html;
 
-document
-.querySelector(".modal-add")
-.before(options);
+document.querySelector(".modal-add").before(options);
+
 showPhoto();
 
-document.getElementById("product-modal")
-.style.display="flex";
+document.getElementById("product-modal").style.display = "flex";
 
 }
-
 
 function showPhoto(){
 
