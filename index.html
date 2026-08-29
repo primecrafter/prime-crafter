@@ -1830,5 +1830,326 @@ openProduct = function(index){
 };
 
 </script>
+   <style>
+
+/* FAVORİLER */
+
+.favorites-panel{
+display:none;
+position:fixed;
+inset:0;
+z-index:3500;
+background:rgba(0,0,0,.7);
+padding:20px;
+}
+
+.favorites-box{
+background:#fff;
+max-width:1000px;
+width:100%;
+max-height:90vh;
+overflow:auto;
+margin:40px auto;
+padding:30px;
+}
+
+.favorites-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+border-bottom:1px solid #ddd;
+padding-bottom:15px;
+}
+
+.close-favorites{
+border:none;
+background:none;
+font-size:28px;
+}
+
+.favorite-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.favorite-card{
+border:1px solid #eee;
+background:#fafafa;
+}
+
+.favorite-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.favorite-card-info{
+padding:15px;
+}
+
+.favorite-card-info h3{
+font-size:16px;
+margin-bottom:8px;
+}
+
+.favorite-card-info p{
+font-weight:bold;
+}
+
+.favorite-remove{
+margin-top:10px;
+border:1px solid #ccc;
+background:white;
+padding:8px 12px;
+}
+
+@media(max-width:700px){
+
+.favorite-grid{
+grid-template-columns:1fr;
+}
+
+.favorites-box{
+margin:10px auto;
+}
+
+}
+
+</style>
+
+
+<!-- FAVORİLER BUTONU -->
+
+<script>
+
+const nav =
+document.querySelector("nav");
+
+const favoriteLink =
+document.createElement("a");
+
+favoriteLink.href="#";
+
+favoriteLink.textContent="♡ Favoriler";
+
+favoriteLink.onclick=function(e){
+
+e.preventDefault();
+
+openFavorites();
+
+};
+
+nav.insertBefore(
+favoriteLink,
+nav.querySelector(".cart")
+);
+
+
+/* FAVORİLER PENCERESİ */
+
+const favoritePanel =
+document.createElement("div");
+
+favoritePanel.className=
+"favorites-panel";
+
+favoritePanel.id=
+"favorites-panel";
+
+favoritePanel.innerHTML=`
+
+<div class="favorites-box">
+
+<div class="favorites-header">
+
+<h2>♡ Favorilerim</h2>
+
+<button
+class="close-favorites"
+onclick="closeFavorites()">
+×
+</button>
+
+</div>
+
+<div
+class="favorite-grid"
+id="favorite-grid">
+</div>
+
+</div>
+
+`;
+
+document.body.appendChild(
+favoritePanel
+);
+
+
+/* AÇ */
+
+function openFavorites(){
+
+renderFavorites();
+
+document.getElementById(
+"favorites-panel"
+).style.display="block";
+
+}
+
+
+/* KAPAT */
+
+function closeFavorites(){
+
+document.getElementById(
+"favorites-panel"
+).style.display="none";
+
+}
+
+
+/* GÖSTER */
+
+function renderFavorites(){
+
+const grid =
+document.getElementById(
+"favorite-grid"
+);
+
+const favoriteProducts =
+favorites.map(
+index=>products[index]
+).filter(Boolean);
+
+
+if(favoriteProducts.length===0){
+
+grid.innerHTML=`
+
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:50px 10px;
+color:#777;
+">
+
+Henüz favori ürününüz yok. ❤️
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+grid.innerHTML="";
+
+
+favoriteProducts.forEach(function(product){
+
+const index =
+products.indexOf(product);
+
+const card =
+document.createElement("div");
+
+card.className=
+"favorite-card";
+
+card.innerHTML=`
+
+<img src="${product.photos[0]}">
+
+<div class="favorite-card-info">
+
+<h3>
+${product.name}
+</h3>
+
+<p>
+${product.price.toLocaleString("tr-TR")} ₺
+</p>
+
+<button
+class="favorite-remove"
+onclick="removeFavorite(${index})">
+Favorilerden çıkar
+</button>
+
+</div>
+
+`;
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* SİL */
+
+function removeFavorite(index){
+
+favorites =
+favorites.filter(
+item=>item!==index
+);
+
+localStorage.setItem(
+"primeCrafterFavorites",
+JSON.stringify(favorites)
+);
+
+renderFavorites();
+
+renderProducts();
+
+}
+
+</script>
+   <style>
+
+/* PREMIUM HEART ICON */
+
+.favorite,
+.modal-favorite{
+font-family:Arial,sans-serif;
+font-size:0;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.favorite::before,
+.modal-favorite::before{
+content:"";
+width:20px;
+height:20px;
+background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z' fill='none' stroke='%23111111' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+center/contain no-repeat;
+transition:.25s;
+}
+
+.favorite:hover::before,
+.modal-favorite:hover::before{
+transform:scale(1.15);
+}
+
+.favorite.active::before,
+.modal-favorite.active::before{
+background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z' fill='%23c9a45c' stroke='%23c9a45c' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+center/contain no-repeat;
+}
+
+</style>
 </body>
 </html>
