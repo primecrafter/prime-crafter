@@ -3474,5 +3474,118 @@ premiumFooter
 );
 
 </script>
+   <style>
+
+/* PREMIUM ÜRÜN DETAY GELİŞTİRMESİ */
+
+.modal-info{
+background:#fff;
+}
+
+.modal-info .tag{
+margin-bottom:5px;
+}
+
+.product-detail-line{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 0;
+border-bottom:1px solid #eee;
+font-size:14px;
+}
+
+.product-detail-line span:first-child{
+color:#999;
+min-width:90px;
+}
+
+.product-detail-line strong{
+color:#222;
+}
+
+.stock-good{
+color:#278a4b;
+font-weight:bold;
+}
+
+.stock-low{
+color:#c47b20;
+font-weight:bold;
+}
+
+</style>
+   <script>
+
+/* ÜRÜN DETAY BİLGİLERİNİ GELİŞTİR */
+
+const originalOpenProduct = openProduct;
+
+openProduct = function(index){
+
+    originalOpenProduct(index);
+
+    const product = products[index];
+
+    const modalInfo =
+    document.querySelector(".modal-info");
+
+    /* Eski detay alanını temizle */
+
+    const oldDetails =
+    document.getElementById("premium-product-details");
+
+    if(oldDetails){
+        oldDetails.remove();
+    }
+
+    /* Yeni detay alanı */
+
+    const details =
+    document.createElement("div");
+
+    details.id =
+    "premium-product-details";
+
+    let stockClass =
+    product.stock <= 3
+    ? "stock-low"
+    : "stock-good";
+
+    details.innerHTML = `
+
+        <div class="product-detail-line">
+            <span>Materyal</span>
+            <strong>${product.material}</strong>
+        </div>
+
+        <div class="product-detail-line">
+            <span>Stok</span>
+            <strong class="${stockClass}">
+                ${product.stock} adet
+            </strong>
+        </div>
+
+        <div class="product-detail-line">
+            <span>Kategori</span>
+            <strong>${product.category}</strong>
+        </div>
+
+    `;
+
+    const options =
+    document.getElementById("product-options");
+
+    if(options){
+        options.before(details);
+    }else{
+        document
+        .querySelector(".modal-add")
+        .before(details);
+    }
+
+};
+
+</script>
 </body>
 </html>
