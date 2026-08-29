@@ -2670,5 +2670,337 @@ WhatsApp'tan Bize Ulaşın
 </div>
 
 </section>
+   <style>
+
+/* YASAL BİLGİLER */
+
+.legal-section{
+background:#f7f6f2;
+}
+
+.legal-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-top:40px;
+}
+
+.legal-card{
+background:white;
+border:1px solid #e5e2dc;
+padding:25px 20px;
+cursor:pointer;
+transition:.25s;
+}
+
+.legal-card:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,0,0,.07);
+}
+
+.legal-card h3{
+font-size:15px;
+margin-bottom:8px;
+}
+
+.legal-card p{
+font-size:12px;
+color:#777;
+}
+
+.legal-modal{
+display:none;
+position:fixed;
+inset:0;
+z-index:5000;
+background:rgba(0,0,0,.7);
+padding:20px;
+}
+
+.legal-box{
+background:white;
+max-width:850px;
+max-height:90vh;
+overflow:auto;
+margin:30px auto;
+padding:40px;
+position:relative;
+}
+
+.legal-close{
+position:absolute;
+right:15px;
+top:10px;
+border:none;
+background:none;
+font-size:28px;
+}
+
+.legal-box h2{
+margin-bottom:20px;
+}
+
+.legal-box h3{
+margin:25px 0 8px;
+}
+
+.legal-box p{
+font-size:14px;
+color:#666;
+margin-bottom:10px;
+}
+
+@media(max-width:800px){
+
+.legal-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:500px){
+
+.legal-grid{
+grid-template-columns:1fr;
+}
+
+.legal-box{
+padding:30px 20px;
+}
+
+}
+
+</style>
+
+
+<section class="legal-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Yasal Bilgiler</h2>
+
+<p>
+Güvenli ve şeffaf alışveriş için önemli bilgiler.
+</p>
+
+</div>
+
+
+<div class="legal-grid">
+
+
+<div
+class="legal-card"
+onclick="openLegal('privacy')">
+
+<h3>🔒 Gizlilik Politikası</h3>
+
+<p>
+Kişisel verilerinizin korunması.
+</p>
+
+</div>
+
+
+<div
+class="legal-card"
+onclick="openLegal('kvkk')">
+
+<h3>🛡 KVKK</h3>
+
+<p>
+Kişisel verilerin işlenmesi hakkında.
+</p>
+
+</div>
+
+
+<div
+class="legal-card"
+onclick="openLegal('return')">
+
+<h3>↻ İade & Değişim</h3>
+
+<p>
+İade ve değişim koşulları.
+</p>
+
+</div>
+
+
+<div
+class="legal-card"
+onclick="openLegal('distance')">
+
+<h3>📄 Mesafeli Satış</h3>
+
+<p>
+Mesafeli satış sözleşmesi bilgileri.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- YASAL PENCERE -->
+
+<div
+class="legal-modal"
+id="legal-modal">
+
+<div class="legal-box">
+
+<button
+class="legal-close"
+onclick="closeLegal()">
+×
+</button>
+
+<div id="legal-content"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function openLegal(type){
+
+const content =
+document.getElementById("legal-content");
+
+if(type==="privacy"){
+
+content.innerHTML=`
+
+<h2>Gizlilik Politikası</h2>
+
+<p>
+PRIME CRAFTER olarak ziyaretçilerimizin
+ve müşterilerimizin kişisel bilgilerinin
+güvenliğine önem veriyoruz.
+</p>
+
+<h3>Toplanan Bilgiler</h3>
+
+<p>
+Sipariş sürecinde gerekli olan iletişim
+ve teslimat bilgileri yalnızca hizmetin
+sağlanması amacıyla kullanılır.
+</p>
+
+<h3>Bilgilerin Korunması</h3>
+
+<p>
+Kişisel bilgiler yetkisiz erişime karşı
+korunur ve ilgili mevzuata uygun şekilde
+işlenir.
+</p>
+
+`;
+
+}
+
+
+if(type==="kvkk"){
+
+content.innerHTML=`
+
+<h2>KVKK</h2>
+
+<p>
+Kişisel verilerin korunmasına ilişkin
+yükümlülükler ilgili mevzuat kapsamında
+uygulanmaktadır.
+</p>
+
+<h3>Veri Sorumlusu</h3>
+
+<p>
+PRIME CRAFTER — Bu bölüm işletme
+bilgileriniz kesinleştirildiğinde
+doldurulacaktır.
+</p>
+
+`;
+
+}
+
+
+if(type==="return"){
+
+content.innerHTML=`
+
+<h2>İade & Değişim</h2>
+
+<p>
+İade ve değişim koşulları, ürünün
+niteliğine ve yürürlükteki tüketici
+mevzuatına göre uygulanır.
+</p>
+
+<h3>Önemli Bilgi</h3>
+
+<p>
+Kesin iade süresi, şartları ve istisnalar
+işletme bilgileriniz ve satış modeliniz
+belirlendikten sonra düzenlenecektir.
+</p>
+
+`;
+
+}
+
+
+if(type==="distance"){
+
+content.innerHTML=`
+
+<h2>Mesafeli Satış Sözleşmesi</h2>
+
+<p>
+Mesafeli satış sözleşmesinin kesin metni,
+satıcı bilgileri, ürün bilgileri, teslimat
+koşulları ve diğer zorunlu bilgiler
+belirlendikten sonra oluşturulacaktır.
+</p>
+
+<h3>Satıcı Bilgileri</h3>
+
+<p>
+PRIME CRAFTER — İşletme bilgileriniz
+buraya eklenecektir.
+</p>
+
+`;
+
+}
+
+
+document.getElementById(
+"legal-modal"
+).style.display="block";
+
+}
+
+
+function closeLegal(){
+
+document.getElementById(
+"legal-modal"
+).style.display="none";
+
+}
+
+</script>
 </body>
 </html>
