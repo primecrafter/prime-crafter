@@ -3096,5 +3096,280 @@ item.innerHTML=
 });
 
 </script>
+   <style>
+
+/* PRIME CRAFTER PREMIUM FOOTER */
+
+.premium-footer{
+background:#080808;
+color:#fff;
+padding:65px 25px 25px;
+}
+
+.premium-footer-inner{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1.5fr;
+gap:45px;
+}
+
+.premium-footer h3{
+font-size:14px;
+margin-bottom:18px;
+letter-spacing:1px;
+}
+
+.premium-footer p{
+color:#888;
+font-size:13px;
+line-height:1.8;
+}
+
+.premium-footer a{
+color:#888;
+font-size:13px;
+display:block;
+margin-bottom:10px;
+transition:.2s;
+}
+
+.premium-footer a:hover{
+color:#c9a45c;
+}
+
+.premium-brand{
+font-size:25px;
+font-weight:800;
+letter-spacing:2px;
+margin-bottom:15px;
+}
+
+.premium-brand span{
+color:#c9a45c;
+}
+
+.premium-social{
+display:flex;
+gap:10px;
+margin-top:18px;
+}
+
+.premium-social a{
+width:38px;
+height:38px;
+border:1px solid #333;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:0;
+font-weight:bold;
+color:#fff;
+}
+
+.premium-social a:hover{
+background:#c9a45c;
+color:#111;
+border-color:#c9a45c;
+}
+
+.premium-bottom{
+max-width:1200px;
+margin:45px auto 0;
+padding-top:20px;
+border-top:1px solid #222;
+display:flex;
+justify-content:space-between;
+gap:20px;
+}
+
+.premium-bottom p{
+font-size:11px;
+color:#555;
+}
+
+@media(max-width:800px){
+
+.premium-footer-inner{
+grid-template-columns:1fr 1fr;
+gap:35px;
+}
+
+}
+
+@media(max-width:500px){
+
+.premium-footer-inner{
+grid-template-columns:1fr;
+gap:30px;
+}
+
+.premium-bottom{
+flex-direction:column;
+}
+
+}
+
+</style>
+
+
+<script>
+
+/* ESKİ FOOTER'I GİZLE */
+
+const oldFooter =
+document.querySelector("footer");
+
+if(oldFooter){
+oldFooter.style.display="none";
+}
+
+
+/* YENİ FOOTER */
+
+const premiumFooter =
+document.createElement("footer");
+
+premiumFooter.className=
+"premium-footer";
+
+premiumFooter.innerHTML=`
+
+<div class="premium-footer-inner">
+
+
+<div>
+
+<div class="premium-brand">
+PRIME <span>CRAFTER</span>
+</div>
+
+<p>
+Kaliteli, şık ve özenle seçilmiş
+takı ve aksesuarları keşfedin.
+</p>
+
+<p style="margin-top:10px;">
+PRIME CRAFTER ile tarzınızı
+tamamlayın.
+</p>
+
+
+<div class="premium-social">
+
+<a
+href="https://www.instagram.com/primecrafterofficial/"
+target="_blank">
+◎
+</a>
+
+<a
+href="https://www.facebook.com/primecrafter"
+target="_blank">
+f
+</a>
+
+<a
+href="mailto:primecrafterstore@gmail.com">
+@
+</a>
+
+</div>
+
+</div>
+
+
+<div>
+
+<h3>HIZLI MENÜ</h3>
+
+<a href="#urunler">
+Ürünler
+</a>
+
+<a href="#hakkimizda">
+Hakkımızda
+</a>
+
+<a href="#iletisim">
+İletişim
+</a>
+
+<a href="#" onclick="openFavorites();return false;">
+Favorilerim
+</a>
+
+</div>
+
+
+<div>
+
+<h3>MÜŞTERİ HİZMETLERİ</h3>
+
+<a href="#urunler">
+Ürünler
+</a>
+
+<a href="#iletisim">
+WhatsApp Destek
+</a>
+
+<a href="mailto:primecrafterstore@gmail.com">
+E-posta
+</a>
+
+<a href="#iletisim">
+Sipariş Desteği
+</a>
+
+</div>
+
+
+<div>
+
+<h3>İLETİŞİM</h3>
+
+<p>
+WhatsApp üzerinden bize ulaşabilirsiniz.
+</p>
+
+<a
+href="mailto:primecrafterstore@gmail.com"
+style="color:#c9a45c;margin-top:8px;">
+primecrafterstore@gmail.com
+</a>
+
+<a
+href="https://www.instagram.com/primecrafterofficial/"
+target="_blank">
+@primecrafterofficial
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="premium-bottom">
+
+<p>
+©️ 2026 PRIME CRAFTER. Tüm hakları saklıdır.
+</p>
+
+<p>
+Güvenli • Şık • Özenli
+</p>
+
+</div>
+
+`;
+
+document.body.appendChild(
+premiumFooter
+);
+
+</script>
 </body>
 </html>
