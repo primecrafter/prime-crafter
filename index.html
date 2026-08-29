@@ -2249,5 +2249,146 @@ color:#c9a45c;
 });
 
 </script>
+   <style>
+
+/* MOBİL MENÜ */
+
+.mobile-menu-button{
+display:none;
+background:none;
+border:none;
+color:white;
+font-size:28px;
+cursor:pointer;
+}
+
+.mobile-menu{
+display:none;
+position:absolute;
+top:75px;
+left:0;
+right:0;
+background:#080808;
+border-top:1px solid #333;
+padding:15px 20px;
+}
+
+.mobile-menu a{
+display:block;
+padding:15px 5px;
+border-bottom:1px solid #222;
+color:white;
+font-size:14px;
+}
+
+.mobile-menu a:hover{
+color:#c9a45c;
+}
+
+@media(max-width:700px){
+
+.mobile-menu-button{
+display:block;
+}
+
+.navbar nav{
+display:none;
+}
+
+}
+
+</style>
+
+
+<script>
+
+/* MOBİL MENÜ BUTONU */
+
+const navbar =
+document.querySelector(".navbar");
+
+const menuButton =
+document.createElement("button");
+
+menuButton.className =
+"mobile-menu-button";
+
+menuButton.innerHTML="☰";
+
+navbar.appendChild(menuButton);
+
+
+/* MENÜ */
+
+const mobileMenu =
+document.createElement("div");
+
+mobileMenu.className="mobile-menu";
+
+mobileMenu.innerHTML=`
+
+<a href="#urunler">
+Ürünler
+</a>
+
+<a href="#hakkimizda">
+Hakkımızda
+</a>
+
+<a href="#iletisim">
+İletişim
+</a>
+
+<a href="#" onclick="openFavorites();return false;">
+♡ Favoriler
+</a>
+
+<a href="#" onclick="openCart();return false;">
+🛒 Sepet
+</a>
+
+`;
+
+document.querySelector("header")
+.appendChild(mobileMenu);
+
+
+/* AÇ / KAPAT */
+
+menuButton.onclick=function(){
+
+if(mobileMenu.style.display==="block"){
+
+mobileMenu.style.display="none";
+
+menuButton.innerHTML="☰";
+
+}else{
+
+mobileMenu.style.display="block";
+
+menuButton.innerHTML="×";
+
+}
+
+};
+
+
+/* MENÜYE TIKLAYINCA KAPAT */
+
+mobileMenu.querySelectorAll("a")
+.forEach(function(link){
+
+link.onclick=function(){
+
+mobileMenu.style.display="none";
+
+menuButton.innerHTML="☰";
+
+};
+
+});
+
+</script>
 </body>
 </html>
