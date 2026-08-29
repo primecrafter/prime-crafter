@@ -1773,7 +1773,7 @@ updateCart();
 </script>
 <style>
 
-/* GELİŞMİŞ ÜRÜN DETAYI */
+/* GELİŞMİŞ I */
 
 .modal-info{
 position:relative;
@@ -1821,7 +1821,7 @@ font-size:27px;
 
 <script>
 
-/* GELİŞMİŞ ÜRÜN DETAYI */
+/* GELİŞMİŞ I */
 
 const oldOpenProduct = openProduct;
 
@@ -3503,7 +3503,9 @@ font-weight:bold;
 </style>
    <script>
 
-/* ÜRÜN DETAY BİLGİLERİNİ GELİŞTİR */
+<script>
+
+/* TEK ÜRÜN DETAY SİSTEMİ */
 
 const originalOpenProduct = openProduct;
 
@@ -3513,30 +3515,25 @@ openProduct = function(index){
 
     const product = products[index];
 
-    const modalInfo =
-    document.querySelector(".modal-info");
+    const modalInfo = document.querySelector(".modal-info");
 
-    /* Eski detay alanını temizle */
-
+    /* Daha önce eklenmiş detay varsa sil */
     const oldDetails =
-    document.getElementById("premium-product-details");
+        document.getElementById("premium-product-details");
 
     if(oldDetails){
         oldDetails.remove();
     }
 
-    /* Yeni detay alanı */
+    /* Ürün detay alanı */
+    const details = document.createElement("div");
 
-    const details =
-    document.createElement("div");
-
-    details.id =
-    "premium-product-details";
+    details.id = "premium-product-details";
 
     let stockClass =
-    product.stock <= 3
-    ? "stock-low"
-    : "stock-good";
+        product.stock <= 3
+        ? "stock-low"
+        : "stock-good";
 
     details.innerHTML = `
 
@@ -3560,20 +3557,19 @@ openProduct = function(index){
     `;
 
     const options =
-    document.getElementById("product-options");
+        document.getElementById("product-options");
 
     if(options){
-        options.before(details);
+        options.after(details);
     }else{
         document
-        .querySelector(".modal-add")
-        .before(details);
+            .querySelector(".modal-add")
+            .before(details);
     }
 
 };
 
 </script>
-<style>
 
 /* BEDEN SEÇİMİNİ GİZLE */
 #product-options{
