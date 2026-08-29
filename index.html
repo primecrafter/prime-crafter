@@ -3002,5 +3002,99 @@ document.getElementById(
 }
 
 </script>
+   <style>
+
+/* SOSYAL MEDYA */
+
+.social-links{
+display:flex;
+gap:12px;
+margin-top:20px;
+}
+
+.social-links a{
+width:42px;
+height:42px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid #333;
+border-radius:50%;
+font-size:17px;
+transition:.25s;
+}
+
+.social-links a:hover{
+background:#c9a45c;
+border-color:#c9a45c;
+color:#111;
+transform:translateY(-3px);
+}
+
+.contact-email{
+color:#c9a45c;
+}
+
+</style>
+
+
+<script>
+
+/* SOSYAL MEDYA VE E-POSTA */
+
+const footerContent =
+document.querySelector(".footer-content");
+
+const socialBox =
+document.createElement("div");
+
+socialBox.innerHTML=`
+
+<strong>Bizi Takip Edin</strong>
+
+<div class="social-links">
+
+<a
+href="https://www.instagram.com/primecrafterofficial/"
+target="_blank"
+aria-label="Instagram">
+◎
+</a>
+
+<a
+href="https://www.facebook.com/primecrafter"
+target="_blank"
+aria-label="Facebook">
+f
+</a>
+
+<a
+href="mailto:primecrafterstore@gmail.com"
+aria-label="E-posta">
+✉
+</a>
+
+</div>
+
+`;
+
+footerContent.appendChild(socialBox);
+
+
+/* E-POSTA ADRESİNİ GÜNCELLE */
+
+document.querySelectorAll(".footer-text")
+.forEach(function(item){
+
+if(item.textContent.includes("info@primecrafter.com")){
+
+item.innerHTML=
+'E-posta: <a class="contact-email" href="mailto:primecrafterstore@gmail.com">primecrafterstore@gmail.com</a>';
+
+}
+
+});
+
+</script>
 </body>
 </html>
